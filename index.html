@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="assets/front/css/qgrid.css" rel="stylesheet" />
+    <link href="assets/front/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/front/css/style.css" rel="stylesheet" />
+    <title>Toyota Aves</title>
+</head>
+
+<body>
+    <header class="huge_block" style="background-image:url(assets/front/img/picture-1.jpeg)">
+        <div class="content_block aves_padding">
+            <div class="flex_box debug_red" style="height:156px;"></div>
+            <div class="flex_box debug_red" style="height:516px;"></div>
+            <div class="flex_box debug_red" style="height:405px;"></div>
+        </div>
+    </header>
+    <main>
+        <div class="huge_block" id="reduced-bg" style="background-image:url(assets/front/icons/logo.svg)">
+            <div class="content_block aves_padding">
+                <div class="flex_box debug_red" style="height:342px;"></div>
+                <div class="grid-3 debug_red" style="min-height:737px;"></div>
+            </div>
+        </div>
+        <div class="block_normal">
+            <div class="huge_block" style="background-image:url(assets/front/img/picture-8.jpg)">
+                <div class="shadow_block">
+
+                </div>
+            </div>
+            <div class="white_block"></div>
+            <div class="abs_content aves_padding">
+                <div class="flex_box debug_red" style="height:342px;"></div>
+                <div class="flex_box debug_red" style="min-height:378px;"></div>
+                <div class="flex_box debug_red" style="min-height:378px;"></div>
+                <div class="flex_box debug_red" style="min-height:378px;"></div>
+                <div class="flex_box debug_red" style="min-height:378px;"></div>
+            </div>
+        </div>
+        <div class="medium_block" style="background-image:url(assets/front/img/picture-5.jpg);">
+            <div class="shadow_block">
+
+            </div>
+        </div>
+        <div class="huge_block" style="background-image:url(assets/front/img/picture-8.jpg)">
+
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="assets/front/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/front/js/lc_lightbox.lite.js"></script>
+    <script type="text/javascript" src="assets/front/js/lightbox.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js"></script>
+
+    <script>
+        var navbar_on = false;
+        var lazyLoadInstance = new LazyLoad({
+            elements_selector: ".lazy"
+        });
+
+        window.onload = function () {
+            //put here all library functions
+        };
+
+        function reset_bar() {
+            document.getElementById('sidemenu').style.left = 100 + "%";
+            navbar_on = false;
+        }
+        window.onresize = reset_bar;
+
+        function toggle_nav() {
+            var element = document.getElementById('sidemenu');
+            if (navbar_on == false) {
+                navbar_on = true;
+                element.style.left = 0 + "%";
+
+            } else {
+                navbar_on = false;
+                element.style.left = 100 + "%";
+            }
+        }
+    </script>
+</body>
+
+</html>
