@@ -12,10 +12,9 @@
 
 <body>
     <header class="huge_block" style="background-image:url(assets/front/img/picture-1.jpeg)">
-        <div class="content_block aves_padding" id="shit">
+        <div class="content_block-2 aves_padding" id="shit">
             <div class="flex_box" style="height:156px;">
-                <span style="display:flex;align-items:flex-end;"><img class="aves_logo"
-                        src="assets/front/icons/logo-white.svg"></span>
+                <span style="display:flex;align-items:flex-end;"><img class="aves_logo" src="assets/front/icons/logo-white.svg"></span>
                 <div class="flex_filler" id="fill-1"></div>
                 <div class="white_box">
                     <img class="white_logo" src="assets/front/icons/zdunska_wola.png">
@@ -39,7 +38,7 @@
     </header>
     <main>
         <div class="huge_block" id="reduced-bg" style="background-image:url(assets/front/icons/logo.svg)">
-            <div class="content_block aves_padding">
+            <div class="content_block-2 aves_padding">
                 <div class="flex_box" style="height:342px;">
                     <h1 class="aves_title">WYBIERZ TOYOTĘ <i>YARIS CROSS</i> STWORZONĄ DLA CIEBIE</h1>
                 </div>
@@ -240,43 +239,89 @@
                         <div class="icon_block">
                             <img src="assets/front/icons/ast.svg">
                         </div>
-                        <div class="content_block debug_red">
-
+                        <div class="content_block">
+                            <h1>REZERWACJA ONLINE W TRZECH KROKACH</h1>
+                            <div class="gold_line"></div>
+                            <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper augue
+                                convallis, imperdiet diam id, commodo lorem. Sed quis fringilla leo. Sed malesuada, leo
+                                vitae rutrum eleifend, elit ex.
+                            </desc>
                         </div>
                     </div>
                     <div class="item_2">
                         <div class="icon_block">
                             <img src="assets/front/icons/ast.svg">
                         </div>
-                        <div class="content_block debug_red">
-
+                        <div class="content_block">
+                            <h1>REZERWACJA ONLINE W TRZECH KROKACH</h1>
+                            <div class="gold_line"></div>
+                            <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper augue
+                                convallis, imperdiet diam id, commodo lorem. Sed quis fringilla leo. Sed malesuada, leo
+                                vitae rutrum eleifend, elit ex.
+                            </desc>
                         </div>
                     </div>
                     <div class="item_2">
                         <div class="icon_block">
                             <img src="assets/front/icons/ast.svg">
                         </div>
-                        <div class="content_block debug_red">
-
+                        <div class="content_block">
+                            <h1>REZERWACJA ONLINE W TRZECH KROKACH</h1>
+                            <div class="gold_line"></div>
+                            <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper augue
+                                convallis, imperdiet diam id, commodo lorem. Sed quis fringilla leo. Sed malesuada, leo
+                                vitae rutrum eleifend, elit ex.
+                            </desc>
                         </div>
                     </div>
                     <div class="item_2">
                         <div class="icon_block">
                             <img src="assets/front/icons/ast.svg">
                         </div>
-                        <div class="content_block debug_red">
-
+                        <div class="content_block">
+                            <h1>REZERWACJA ONLINE W TRZECH KROKACH</h1>
+                            <div class="gold_line"></div>
+                            <desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper augue
+                                convallis, imperdiet diam id, commodo lorem. Sed quis fringilla leo. Sed malesuada, leo
+                                vitae rutrum eleifend, elit ex.
+                            </desc>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="huge_block" style="background-image:url(assets/front/img/picture-8.jpg)">
-
+            <div class="up_shadow aves_padding">
+                <div class="flex_box" style="height:214px;">
+                    <h1 class="aves_title"><i>KONTAKT</i></h1>
+                </div>
+                <div class="flex_box flex_mob_e" style="height:536px;">
+                    <div class="contact_form">
+                        <form method="GET" action="mailer/thankyou.php">
+                            <div class="block">
+                                <h1>MASZ PYTANIA? SKONTAKTUJ SIĘ Z NAMI POPRZEZ FORMULARZ KONTAKTOWY</h1>
+                                <input type="text" name="name" placeholder="IMIĘ" required>
+                                <input type="text" name="tel" placeholder="NR TELEFONU" required>
+                                <input type="text" name="subject" placeholder="WYBIERZ TEMAT WIADOMOŚCI" required>
+                                <div class="checkbox_space">
+                                    <input type="checkbox" class="form_check" name="rodo1" id="rodo1" required>
+                                    <p>Akceptuję <a href="#" target="blank">regulamin</a></p>
+                                </div>
+                            </div>
+                            <div class="block">
+                                <textarea required class="form_textarea" rows="7" placeholder="TREŚĆ WIADOMOŚCI" name="message"></textarea>
+                                <div class="btn_flex-2"><button class="btn_aves-inv">zapisz się</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
-
+        <div class="flex_box flex_c">
+            <div class="car_pop" style="background-image:url(assets/front/img/alpha-car.png);"></div>
+        </div>
     </footer>
     <script type="text/javascript" src="assets/front/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="assets/front/js/lc_lightbox.lite.js"></script>
@@ -289,7 +334,7 @@
             elements_selector: ".lazy"
         });
 
-        window.onload = function () {
+        window.onload = function() {
             //put here all library functions
         };
 
