@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="assets/front/css/qgrid.css" rel="stylesheet" />
     <link href="assets/front/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/front/css/style.css" rel="stylesheet" />
+    <link href="assets/front/css/style.css?v=1.2" rel="stylesheet" />
     <title>Toyota Aves</title>
 </head>
 
@@ -25,7 +25,7 @@
             <div class="flex_box flex_align_e" id="btn-block">
                 <button class="btn_aves">zapisz się</button>
             </div>
-            <div class="flex_box" style="height:405px;">
+            <div class="flex_box" id="contact-block">
                 <div class="contact_block flex_mob_e">
                     <h1>MASZ PYTANIA? SKONTAKTUJ SIĘ Z NAMI POPRZEZ FORMULARZ KONTAKTOWY</h1>
                     <form>
