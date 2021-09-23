@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php session_start(); ?>
+<?php $captcha = '6LcEAPUaAAAAALF4L9uVvZeF6MvOs8KKKv8uXgvU'; ?>
 
 <head>
     <meta charset="utf-8" />
@@ -37,6 +39,16 @@
         </div>
     </header>
     <main>
+        <?php if (isset($_SESSION['response_text'])) : ?>
+            <div class="fixed_bar" id="fixbar">
+                <div class="session_reply" style="background-color:<?= $_SESSION['response_color']; ?>">
+                    <button onclick="hide_bar()">x</button>
+                    <h1><?= $_SESSION['response_text']; ?></h1>
+                </div>
+            </div>
+            <?php unset($_SESSION['response_text']); ?>
+            <?php unset($_SESSION['response_color']); ?>
+        <?php endif; ?>
         <div class="huge_block" id="reduced-bg" style="background-image:url(assets/front/icons/logo.svg)">
             <div class="content_block-2 aves_padding">
                 <div class="flex_box" style="height:342px;">
@@ -297,20 +309,20 @@
                 </div>
                 <div class="flex_box flex_mob_e" style="height:536px;">
                     <div class="contact_form">
-                        <form method="GET" action="mailer/thankyou.php">
+                        <form method="POST" action="mailer/thankyou.php" id="contact-form">
                             <div class="block">
                                 <h1>MASZ PYTANIA? SKONTAKTUJ SIĘ Z NAMI POPRZEZ FORMULARZ KONTAKTOWY</h1>
-                                <input type="text" name="name" placeholder="IMIĘ" required>
+                                <input type="email" id="email" name="email" placeholder="ADRES E-MAIL" required>
                                 <input type="text" name="tel" placeholder="NR TELEFONU" required>
                                 <input type="text" name="subject" placeholder="WYBIERZ TEMAT WIADOMOŚCI" required>
                                 <div class="checkbox_space">
                                     <input type="checkbox" class="form_check" name="rodo1" id="rodo1" required>
-                                    <p>Akceptuję <a href="#" target="blank">regulamin</a></p>
+                                    <p>Akceptuję <a href="assets/Aves Polityka.pdf" target="blank">regulamin</a></p>
                                 </div>
                             </div>
                             <div class="block">
                                 <textarea required class="form_textarea" rows="7" placeholder="TREŚĆ WIADOMOŚCI" name="message"></textarea>
-                                <div class="btn_flex-2"><button class="btn_aves-inv">zapisz się</button></div>
+                                <div class="btn_flex-2"><button type="submit" value="Submit" class="btn_aves-inv">zapisz się</button></div>
                             </div>
                         </form>
                     </div>
@@ -327,6 +339,31 @@
     <script type="text/javascript" src="assets/front/js/lc_lightbox.lite.js"></script>
     <script type="text/javascript" src="assets/front/js/lightbox.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=<?= $captcha; ?>"></script>
+
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('<?= $captcha; ?>', {
+                action: 'homepage'
+            }).then(function(token) {
+
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $('#contact-form').submit(function(event) {
+            event.preventDefault();
+            var email = $('#email').val();
+            grecaptcha.ready(function() {
+                grecaptcha.execute('<?= $captcha; ?>', {
+                    action: 'mailer/thankyou'
+                }).then(function(token) {
+                    $('#contact-form').prepend('<input type="hidden" name="token" value="' + token + '">');
+                    $('#contact-form').unbind('submit').submit();
+                });;
+            });
+        });
+    </script>
 
     <script>
         var navbar_on = false;
@@ -334,27 +371,13 @@
             elements_selector: ".lazy"
         });
 
+        function hide_bar() {
+            document.getElementById('fixbar').style.display = 'none';
+        }
+
         window.onload = function() {
             //put here all library functions
         };
-
-        function reset_bar() {
-            document.getElementById('sidemenu').style.left = 100 + "%";
-            navbar_on = false;
-        }
-        window.onresize = reset_bar;
-
-        function toggle_nav() {
-            var element = document.getElementById('sidemenu');
-            if (navbar_on == false) {
-                navbar_on = true;
-                element.style.left = 0 + "%";
-
-            } else {
-                navbar_on = false;
-                element.style.left = 100 + "%";
-            }
-        }
     </script>
 </body>
 

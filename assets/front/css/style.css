@@ -530,6 +530,48 @@ input.form_check{
   .checkbox_space p a{
     color: #DFBC26
 }
+  .fixed_bar{
+     position: fixed;
+     top: 10%;
+     display: flex;
+     justify-content: center;
+     width: 100%;
+     z-index: 100;
+  }
+  .session_reply{
+      justify-content: center;
+      align-items: center;
+      max-width: 960px;
+      width: 100%;
+      min-height: 180px;
+      display: flex;
+      padding: 45px 45px 45px 45px;
+      background-color: black;
+      border-radius: 6px;
+  }
+  .session_reply h1{
+      color: white;
+      text-transform: uppercase;
+      margin: 0px;
+      padding-left: 32px;
+      font-size: 34px;
+      font-weight: 300;
+  }
+  .session_reply button{
+      position: relative;
+      top: -8px;
+      width: 42px;
+      height: 64px;
+      font-size: 42px;
+      border: none;
+      background-color: rgba(0,0,0,0);
+      color: white;
+      transition: 0.3s;
+  }
+  .session_reply button:hover{
+      color: #DFBC26;
+      font-size: 43px;
+  }
 
 @media(max-width:1620px){
     .aves_padding{

@@ -1,17 +1,18 @@
 <?php
+session_start();
 require 'config.php';
 require 'functions.php';
 require 'PHPMailerAutoload.php';
 require 'base.php';
-if (!empty($_GET['name'])) {
+if (verifyCaptcha(secret_captcha(), $_POST['token'], $_SERVER['REMOTE_ADDR'])) {
   $mail = new PHPMailer;
 
 
 
-  if (!isset($_GET['rodo1']) || $_GET['rodo1'] != 'on') {
-    $_GET['rodo1'] = 'Niezaakceptowane';
+  if (!isset($_POST['rodo1']) || $_POST['rodo1'] != 'on') {
+    $_POST['rodo1'] = 'Niezaakceptowane';
   } else {
-    $_GET['rodo1'] = 'Zaakceptowane';
+    $_POST['rodo1'] = 'Zaakceptowane';
   }
 
 
@@ -35,22 +36,30 @@ if (!empty($_GET['name'])) {
   $mail->Port = $cfg['smtp_port'];
 
   $mail->setFrom($cfg['smtp_user'], 'Toyota Aves  - formularz kontaktowy');
-  //$mail->AddBCC($_GET['mymail']);
+  //$mail->AddBCC($_POST['mymail']);
   $mail->AddBCC('p.rybarczyk@adawards.pl');
-  /*if (!empty($_GET['liame'])) {
-    $mail->addReplyTo($_GET['liame']);
+  /*if (!empty($_POST['liame'])) {
+    $mail->addReplyTo($_POST['liame']);
   }*/
 
   $mail->isHTML(true);
   $mail->CharSet = 'UTF-8';
 
   $mail->Subject = 'Toyota Aves - formularz kontaktowy';
-  $mail->Body    = build_mail_body($_GET, 'contact.php');
+  $mail->Body    = build_mail_body($_POST, 'contact.php');
+  $respone_text = 'Wiadomość Została Wysłana!';
+  $respone_color = '#00cc00';
   if (!$mail->send()) {
     echo 'Message could not be sent.';
+    $respone_text = 'Wiadomość Nie Została Wysłana!';
+    $respone_color = '#cc0000';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
     //exit;
   }
+} else {
+  $respone_text = 'Błąd Weryfikacji Captcha!';
+  $respone_color = '#cc0000';
 }
-
+$_SESSION['response_text'] = $respone_text;
+$_SESSION['response_color'] = $respone_color;
 header('Location: ' . base_url());
